@@ -36,3 +36,7 @@ This repository contains the RTL implementation of an 8x8 weight-stationary syst
 This project was a collaborative effort by a 3-person team. **I was personally responsible for designing and implementing the AHB-Lite subordinate interface (`ahb.sv`)**, which included architecting the memory-mapped control registers, creating custom data forwarding logic to resolve RAW bus hazards, and developing the FSM to enforce strict AMBA compliance.
 
 The overall integration of the AHB interface, the central state controller, and the systolic processing array was achieved collectively through rigorous co-simulation and validation to ensure all components functioned seamlessly together under the strict 55-cycle maximum latency constraint.
+
+## 🔒 Confidentiality Notice
+
+Please note that due to Non-Disclosure Agreements (NDAs), certain project assets—specifically the comprehensive SystemVerilog testbench suite and detailed simulation outputs/waveforms—have been excluded from this public repository.
