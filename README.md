@@ -22,7 +22,6 @@ This repository contains the RTL implementation of an 8x8 weight-stationary syst
   * `array.sv` & `array_cell.sv`: The 8x8 systolic processing element array.
   * `multiplier.sv`, `float_adder.sv`: Core arithmetic units used within the processing elements.
   * *Additional modules handling biases, activation functions, and control counters.*
-* **`/python scripts/`**: Scripts used for generating test vectors, expected outputs, or processing results.
 
 ## 🛠️ Technologies & Tools
 
