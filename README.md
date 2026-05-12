@@ -2,16 +2,21 @@
 
 **March 2026 - May 2026**
 
-This repository contains the RTL implementation of an 8x8 weight-stationary systolic array co-processor, interfaced via the AMBA AHB-Lite protocol. The project was designed and validated by a 3-person team, focusing on high-performance inference execution with strict latency constraints.
+This repository showcases my RTL implementation of the **AHB-Lite subordinate interface** for a System-on-Chip (SoC) peripheral module featuring an 8x8 weight-stationary systolic array co-processor. Developed as part of an academic Cooperative Design Lab, this module provides hardware acceleration for fully-connected neural network inference (general-purpose matrix multiplication). My primary role was architecting the bus interface and memory-mapped control logic to ensure high-performance execution under strict latency constraints.
 
-## 🚀 Key Features
+## 🚀 My Contributions (AHB Interface)
 
-* **8x8 Weight-Stationary Systolic Array**: A high-throughput processing core designed for matrix multiplication operations, optimized for AI inference tasks.
-* **AHB-Lite Subordinate Interface**: Fully AMBA-compliant system bus interface implemented in SystemVerilog, handling high-speed data transfers.
-* **Memory-Mapped Control Registers**: Custom architecture for control and status registers (CSRs) to configure and monitor the co-processor.
-* **Advanced Hazard Resolution**: Custom data forwarding logic implemented within the bus interface to elegantly resolve Read-After-Write (RAW) data hazards without unnecessary stalling.
-* **Robust FSM Control**: State machine logic to enforce strict AMBA compliance, dynamically managing `HREADY` stalls and gracefully handling `HRESP` error responses.
-* **Strict Latency Constraints**: Designed and verified to execute end-to-end inference within a strict 55-cycle maximum latency budget.
+* **AHB-Lite Subordinate Interface**: Fully AMBA-compliant system bus interface implemented in SystemVerilog, supporting high-speed data transfers, burst modes, and seamless SoC integration.
+* **Memory-Mapped Control Registers**: Custom architecture for control and status registers (CSRs) to configure and monitor the co-processor, featuring custom data forwarding logic to resolve Read-After-Write (RAW) bus hazards.
+* **Robust FSM Control**: State machine logic to enforce strict AMBA compliance, dynamically managing `HREADY` transaction stalls and gracefully handling `HRESP` error responses.
+
+## ⚙️ Overall System Capabilities
+
+* **8x8 Weight-Stationary Systolic Array**: A high-throughput processing core designed for matrix multiplication operations, optimized for Fully Connected (MLP) neural network layers.
+* **Custom Floating Point Arithmetic**: Operates on custom 8-bit minifloats (1 sign, 4 exponent, 3 mantissa) to optimize memory bandwidth, utilizing dedicated hardware for floating-point addition and multiplication.
+* **Configurable Activation Functions**: Hardware support for multiple non-linear activation functions applied to network outputs, including ReLU, Leaky ReLU (α = 1/4), Binary, and Identity.
+* **SRAM Data Buffering**: Integrates non-ideal SRAM models to handle high-capacity storage for input vectors, weights, and inference outputs.
+* **Strict Latency Constraints**: Designed and verified to execute end-to-end inference within a strict 55-cycle maximum latency budget at a 100 MHz system clock.
 
 ## 📁 Repository Structure
 
@@ -30,11 +35,11 @@ This repository contains the RTL implementation of an 8x8 weight-stationary syst
 * **Verification**: SystemVerilog Testbenches
 * **Architecture**: Weight-Stationary Systolic Array
 
-## 👥 Team
+## 👨‍💻 Project Scope & Integration
 
-This project was a collaborative effort by a 3-person team. **I was personally responsible for designing and implementing the AHB-Lite subordinate interface (`ahb.sv`)**, which included architecting the memory-mapped control registers, creating custom data forwarding logic to resolve RAW bus hazards, and developing the FSM to enforce strict AMBA compliance.
+While the systolic array datapath and state controller were developed collaboratively within a 3-person team, **I was personally responsible for designing and implementing the entirety of the AHB-Lite subordinate interface (`ahb.sv`)**. This included architecting the memory-mapped control registers, creating custom data forwarding logic to resolve RAW bus hazards, and developing the FSM to enforce strict AMBA compliance.
 
-The overall integration of the AHB interface, the central state controller, and the systolic processing array was achieved collectively through rigorous co-simulation and validation to ensure all components functioned seamlessly together under the strict 55-cycle maximum latency constraint.
+I also played a key role in the overall integration of the AHB interface with the central state controller and the systolic processing array, which was achieved through rigorous co-simulation and validation to ensure all components functioned seamlessly together under the strict 55-cycle maximum latency constraint.
 
 ## 🔒 Confidentiality Notice
 
