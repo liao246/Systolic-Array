@@ -18,6 +18,14 @@ This repository showcases my RTL implementation of the **AHB-Lite subordinate in
 * **SRAM Data Buffering**: Integrates non-ideal SRAM models to handle high-capacity storage for input vectors, weights, and inference outputs.
 * **Strict Latency Constraints**: Designed and verified to execute end-to-end inference within a strict 55-cycle maximum latency budget at a 100 MHz system clock.
 
+## 📊 Architecture Diagrams
+
+### Top-Level Architecture
+![Top Level Architecture](diagrams/top_level.png)
+
+### AHB-Lite Subordinate Interface
+![AHB Subordinate Interface](diagrams/ahb_diagram.png)
+
 ## 📁 Repository Structure
 
 * **`/RTL/`**: Contains all the SystemVerilog source code for the co-processor.
